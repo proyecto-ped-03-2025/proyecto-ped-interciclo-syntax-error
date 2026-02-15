@@ -92,6 +92,11 @@ void ayuda()
 
 void opcionesjuego()
 {
+    cout << "======| OPCIONES DEL JUEGO |======" << endl;
+    cout << "1. Piedra: le gana a tijeras y pierde con papel." << endl;
+    cout<<"\n"<<endl;
+    cout << "2. Papel: le gana a piedra y pierde con tijeras." << endl;
+    cout<<"\n"<<endl;
     
 };
 void menu()
