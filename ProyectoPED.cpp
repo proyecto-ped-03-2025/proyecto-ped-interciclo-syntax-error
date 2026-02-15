@@ -84,6 +84,15 @@ void mostrarPuntajes()
         cout << "No hay puntajes registrados aún." << endl; // si no hay puntajes muestra el mensaje informando que no hay puntajes registrados.
         return;
     }
+    cout << "======| TABLA DE PUNTAJES |======" << endl;
+    cout << "\n"<<endl;
+
+    Puntaje *actual = listaPuntajes;
+    while (actual != NULL)
+    {
+        cout << "Jugador: " << actual->nombreJugador << " Puntos: " << actual->puntos << endl;
+        actual = actual->siguiente;
+    }
     
 };
 
