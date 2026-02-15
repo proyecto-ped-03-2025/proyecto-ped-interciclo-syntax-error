@@ -139,7 +139,6 @@ void menu()
         case 6:
         opcionesjuego();
         break;
-        break;
         case 7:
         Integrantesgrp();
         break;
@@ -147,6 +146,7 @@ void menu()
         cout << "Saliendo..."<<endl;
         break;
         default: 
+        cout << "Esa opcion no existe por favor vuelva a escoger otra opcion" << endl;
         break;
         }
     }while (opcion != 8);
