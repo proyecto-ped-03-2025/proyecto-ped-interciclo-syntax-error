@@ -16,6 +16,13 @@ struct Nodo
 
 } *primero, *ultimo;
 
+struct Puntaje
+{
+    string nombreJugador;
+    int puntos;
+    Puntaje *siguiente;
+
+} *listaPuntajes;
 void insertarNombres()
 {
 
@@ -69,6 +76,10 @@ void Integrantesgrp(){
     cout << "1. Diana Rebeca Ayala Jandres 00021325"<<endl;
     cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
     cout << "3. Israel Lemus Sibrián 00200524"<<endl;
+};
+void mostrarPuntajes()
+{
+    
 };
 
 void ayuda()
