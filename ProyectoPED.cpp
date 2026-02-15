@@ -72,3 +72,14 @@ void menu()
         }
     }while (opcion != 8);
 };
+
+void mostrarJugadores() // muestra los jugadores registrados para jugar.
+{
+    Nodo *actual = primero;
+
+    if (actual == NULL) // verifica que la lista no este vacia
+    {
+        cout << "No hay jugadores registrados." << endl;
+        return;
+    }
+};
