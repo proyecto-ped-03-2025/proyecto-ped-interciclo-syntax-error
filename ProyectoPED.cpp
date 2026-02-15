@@ -94,3 +94,10 @@ void mostrarJugadores() // muestra los jugadores registrados para jugar.
        actual = actual->siguiente;
     }
 };
+
+void Integrantesgrp(){
+    cout << "INTEGRANTES DEL GRUPO"<<endl;
+    cout << "1. Diana Rebeca Ayala Jandres 00021325"<<endl;
+    cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
+    cout << "3. Israel Lemus Sibrián 00200524"<<endl;
+};
