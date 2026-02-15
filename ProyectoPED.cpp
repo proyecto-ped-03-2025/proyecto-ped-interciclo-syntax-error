@@ -42,3 +42,24 @@ void insertarNombres()
     }
     cout << "\n Informacion guardada \n" << endl;
 };
+
+oid menu()
+{
+    int opcion;
+
+    do
+    {
+        cout << "======== MENU ========" << endl;
+        cout << "Escoga una opcion " << endl;
+        cout << "1.Agregar Jugadores" << endl;
+        cout << "2.Jugar" << endl;
+        cout << "3.Mostrar Jugadores" << endl;
+        cout << "4.Puntaje" << endl;
+        cout << "5.Ayuda" << endl;
+        cout << "6.opciones de juego" << endl;
+        cout << "7.Integrantes del grupo" << endl;
+        cout << "8.Salir" << endl;
+        cin >> opcion;
+        cout<<"\n"<<endl;
+    }while (opcion != 8);
+};
