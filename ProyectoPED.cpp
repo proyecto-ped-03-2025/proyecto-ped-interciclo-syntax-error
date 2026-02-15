@@ -93,6 +93,22 @@ void mostrarPuntajes()
         cout << "Jugador: " << actual->nombreJugador << " Puntos: " << actual->puntos << endl;
         actual = actual->siguiente;
     }
+    // Encontrar al jugador con más puntos
+    actual = listaPuntajes;
+    string ganador = "";
+    int maxPuntos = 0;
+
+    while (actual != NULL)
+    {
+        if (actual->puntos > maxPuntos)
+        {
+            maxPuntos = actual->puntos;
+            ganador = actual->nombreJugador;
+        }
+        actual = actual->siguiente;
+    }
+
+    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " gana el juego. " << endl;
     
 };
 
@@ -157,6 +173,7 @@ void menu()
             break;
 
         case 4:
+        mostrarPuntajes();
         break;
         case 5:
           ayuda();
