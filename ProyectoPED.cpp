@@ -122,6 +122,7 @@ void menu()
         case 4:
         break;
         case 5:
+          ayuda();
         break;
         case 6:
         break;
