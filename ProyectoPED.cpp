@@ -82,4 +82,15 @@ void mostrarJugadores() // muestra los jugadores registrados para jugar.
         cout << "No hay jugadores registrados." << endl;
         return;
     }
+
+    cout << "======| JUGADORES REGISTRADOS|====== " << endl;
+    cout << "\n"<< endl;
+
+    while (actual != NULL) // recorre la lista si ve que no esta vacia y muestra a los jugadores agregados.
+    {
+        cout << "Nombre: " << actual->nombre << endl;
+        cout << "Carnet: " << actual->carnet << endl;
+        cout << "\n"<<endl;
+       actual = actual->siguiente;
+    }
 };
