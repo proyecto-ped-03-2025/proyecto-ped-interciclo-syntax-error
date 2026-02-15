@@ -97,6 +97,8 @@ void opcionesjuego()
     cout<<"\n"<<endl;
     cout << "2. Papel: le gana a piedra y pierde con tijeras." << endl;
     cout<<"\n"<<endl;
+    cout << "3. Tijeras: le gana a papel y pierde con piedra. " << endl;
+    cout<<"\n"<<endl;
     
 };
 void menu()
@@ -135,6 +137,7 @@ void menu()
           ayuda();
         break;
         case 6:
+        opcionesjuego();
         break;
         break;
         case 7:
