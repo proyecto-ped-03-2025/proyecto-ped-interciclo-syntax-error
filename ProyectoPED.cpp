@@ -43,7 +43,7 @@ void insertarNombres()
     cout << "\n Informacion guardada \n" << endl;
 };
 
-oid menu()
+void menu()
 {
     int opcion;
 
@@ -61,5 +61,14 @@ oid menu()
         cout << "8.Salir" << endl;
         cin >> opcion;
         cout<<"\n"<<endl;
+
+        switch (opcion)
+        {
+        case 1:
+            insertarNombres();
+            break;
+        default: 
+        break;
+        }
     }while (opcion != 8);
 };
