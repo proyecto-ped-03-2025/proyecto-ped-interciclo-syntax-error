@@ -25,4 +25,20 @@ void insertarNombres()
 
     cout << "Ingrese el carnet del usuario:";
     cin >> nuevo->carnet;
+
+    if (primero == NULL)
+    { // si primer nodo esta vacio
+        primero = nuevo;
+        primero->siguiente = NULL;
+        primero->reversa = NULL;
+        ultimo = primero;
+    }
+    else
+    {
+        ultimo->siguiente = nuevo;
+        nuevo->siguiente = NULL;
+        nuevo->reversa = ultimo;
+        ultimo = nuevo;
+    }
+    cout << "\n Informacion guardada \n" << endl;
 };
