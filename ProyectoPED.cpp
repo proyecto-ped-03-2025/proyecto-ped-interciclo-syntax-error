@@ -70,6 +70,7 @@ void Integrantesgrp(){
     cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
     cout << "3. Israel Lemus Sibrián 00200524"<<endl;
 };
+
 void menu()
 {
     int opcion;
@@ -101,11 +102,7 @@ void menu()
             break;
 
         case 4:
-        break;
-        case 5:
-        break;
-        case 6:
-        break;
+
         break;
         case 7:
         Integrantesgrp();
@@ -114,7 +111,7 @@ void menu()
         cout << "Saliendo..."<<endl;
         break;
         default: 
-        break;
+
         }
     }while (opcion != 8);
 };
