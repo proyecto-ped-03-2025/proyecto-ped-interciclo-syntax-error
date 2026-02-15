@@ -88,7 +88,12 @@ void ayuda()
     cout<<"\n"<<endl;
     cout << "7. Al seleccionar esta opcion sales del programa." << endl;
     cout<<"\n"<<endl;
-}
+};
+
+void opcionesjuego()
+{
+    
+};
 void menu()
 {
     int opcion;
