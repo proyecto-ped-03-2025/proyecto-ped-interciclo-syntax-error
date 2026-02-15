@@ -80,6 +80,14 @@ void ayuda()
     cout<<"\n"<<endl;
     cout << "3. Al seleccionar esta opcion se muestra la lista de jugadores " << endl;
     cout<<"\n"<<endl;
+    cout << "4. Al seleccionar esta opcion se mostraran los puntajes totales de los jugadores" << endl;
+    cout<<"\n"<<endl;
+    cout << "5. Al seleccionar esta opcion se muestra la opcion de ayuda" << endl;
+    cout<<"\n"<<endl;
+    cout << "6. Al seleccionar esta opcion se mostraran las opciones de juegos, explicandote como funciona" << endl;
+    cout<<"\n"<<endl;
+    cout << "7. Al seleccionar esta opcion sales del programa." << endl;
+    cout<<"\n"<<endl;
 }
 void menu()
 {
