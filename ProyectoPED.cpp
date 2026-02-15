@@ -67,6 +67,25 @@ void menu()
         case 1:
             insertarNombres();
             break;
+        case 2:
+        break;
+        case 3:
+            mostrarJugadores();
+            break;
+
+        case 4:
+        break;
+        case 5:
+        break;
+        case 6:
+        break;
+        break;
+        case 7:
+        Integrantesgrp();
+        break;
+        case 8:
+        cout << "Saliendo..."<<endl;
+        break;
         default: 
         break;
         }
