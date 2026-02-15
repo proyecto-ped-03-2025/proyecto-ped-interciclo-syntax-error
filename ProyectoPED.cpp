@@ -16,6 +16,13 @@ struct Nodo
 
 } *primero, *ultimo;
 
+struct Puntaje
+{
+    string nombreJugador;
+    int puntos;
+    Puntaje *siguiente;
+
+} *listaPuntajes;
 void insertarNombres()
 {
 
@@ -70,7 +77,71 @@ void Integrantesgrp(){
     cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
     cout << "3. Israel Lemus Sibrián 00200524"<<endl;
 };
+void mostrarPuntajes()
+{
+    if (listaPuntajes == NULL)
+    {
+        cout << "No hay puntajes registrados aún." << endl; // si no hay puntajes muestra el mensaje informando que no hay puntajes registrados.
+        return;
+    }
+    cout << "======| TABLA DE PUNTAJES |======" << endl;
+    cout << "\n"<<endl;
 
+    Puntaje *actual = listaPuntajes;
+    while (actual != NULL)
+    {
+        cout << "Jugador: " << actual->nombreJugador << " Puntos: " << actual->puntos << endl;
+        actual = actual->siguiente;
+    }
+    // Encontrar al jugador con más puntos
+    actual = listaPuntajes;
+    string ganador = "";
+    int maxPuntos = 0;
+
+    while (actual != NULL)
+    {
+        if (actual->puntos > maxPuntos)
+        {
+            maxPuntos = actual->puntos;
+            ganador = actual->nombreJugador;
+        }
+        actual = actual->siguiente;
+    }
+
+    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " gana el juego. " << endl;
+    
+};
+
+void ayuda()
+{
+    cout << "]======| Ayuda |======[ " << endl;
+    cout << "1. Al seleccionar esta opcion podras agregar los nombres de las personas que quieren jugar. " << endl;
+    cout<<"\n"<<endl;
+    cout << "2. Al seleccionar esta opcion podras iniciar la partida para jugar." << endl;
+    cout<<"\n"<<endl;
+    cout << "3. Al seleccionar esta opcion se muestra la lista de jugadores " << endl;
+    cout<<"\n"<<endl;
+    cout << "4. Al seleccionar esta opcion se mostraran los puntajes totales de los jugadores" << endl;
+    cout<<"\n"<<endl;
+    cout << "5. Al seleccionar esta opcion se muestra la opcion de ayuda" << endl;
+    cout<<"\n"<<endl;
+    cout << "6. Al seleccionar esta opcion se mostraran las opciones de juegos, explicandote como funciona" << endl;
+    cout<<"\n"<<endl;
+    cout << "7. Al seleccionar esta opcion sales del programa." << endl;
+    cout<<"\n"<<endl;
+};
+
+void opcionesjuego()
+{
+    cout << "======| OPCIONES DEL JUEGO |======" << endl;
+    cout << "1. Piedra: le gana a tijeras y pierde con papel." << endl;
+    cout<<"\n"<<endl;
+    cout << "2. Papel: le gana a piedra y pierde con tijeras." << endl;
+    cout<<"\n"<<endl;
+    cout << "3. Tijeras: le gana a papel y pierde con piedra. " << endl;
+    cout<<"\n"<<endl;
+    
+};
 void menu()
 {
     int opcion;
@@ -102,7 +173,13 @@ void menu()
             break;
 
         case 4:
-
+        mostrarPuntajes();
+        break;
+        case 5:
+          ayuda();
+        break;
+        case 6:
+        opcionesjuego();
         break;
         case 7:
         Integrantesgrp();
@@ -111,7 +188,8 @@ void menu()
         cout << "Saliendo..."<<endl;
         break;
         default: 
-
+        cout << "Esa opcion no existe por favor vuelva a escoger otra opcion" << endl;
+        break;
         }
     }while (opcion != 8);
 };
