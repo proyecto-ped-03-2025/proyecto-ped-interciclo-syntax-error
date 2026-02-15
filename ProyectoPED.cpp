@@ -42,7 +42,34 @@ void insertarNombres()
     }
     cout << "\n Informacion guardada \n" << endl;
 };
+void mostrarJugadores() // muestra los jugadores registrados para jugar.
+{
+    Nodo *actual = primero;
 
+    if (actual == NULL) // verifica que la lista no este vacia
+    {
+        cout << "No hay jugadores registrados." << endl;
+        return;
+    }
+
+    cout << "======| JUGADORES REGISTRADOS|====== " << endl;
+    cout << "\n"<< endl;
+
+    while (actual != NULL) // recorre la lista si ve que no esta vacia y muestra a los jugadores agregados.
+    {
+        cout << "Nombre: " << actual->nombre << endl;
+        cout << "Carnet: " << actual->carnet << endl;
+        cout << "\n"<<endl;
+       actual = actual->siguiente;
+    }
+};
+
+void Integrantesgrp(){
+    cout << "INTEGRANTES DEL GRUPO"<<endl;
+    cout << "1. Diana Rebeca Ayala Jandres 00021325"<<endl;
+    cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
+    cout << "3. Israel Lemus Sibrián 00200524"<<endl;
+};
 void menu()
 {
     int opcion;
@@ -92,31 +119,4 @@ void menu()
     }while (opcion != 8);
 };
 
-void mostrarJugadores() // muestra los jugadores registrados para jugar.
-{
-    Nodo *actual = primero;
 
-    if (actual == NULL) // verifica que la lista no este vacia
-    {
-        cout << "No hay jugadores registrados." << endl;
-        return;
-    }
-
-    cout << "======| JUGADORES REGISTRADOS|====== " << endl;
-    cout << "\n"<< endl;
-
-    while (actual != NULL) // recorre la lista si ve que no esta vacia y muestra a los jugadores agregados.
-    {
-        cout << "Nombre: " << actual->nombre << endl;
-        cout << "Carnet: " << actual->carnet << endl;
-        cout << "\n"<<endl;
-       actual = actual->siguiente;
-    }
-};
-
-void Integrantesgrp(){
-    cout << "INTEGRANTES DEL GRUPO"<<endl;
-    cout << "1. Diana Rebeca Ayala Jandres 00021325"<<endl;
-    cout << "2. Daniel Alejandro Lopez Ruano  00156625"<<endl;
-    cout << "3. Israel Lemus Sibrián 00200524"<<endl;
-};
