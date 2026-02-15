@@ -15,3 +15,14 @@ struct Nodo
     Nodo *reversa;
 
 } *primero, *ultimo;
+
+void insertarNombres()
+{
+
+    Nodo *nuevo = new Nodo();
+    cout << "Ingrese el nombre: ";
+    cin>> nuevo->nombre;
+
+    cout << "Ingrese el carnet del usuario:";
+    cin >> nuevo->carnet;
+};
