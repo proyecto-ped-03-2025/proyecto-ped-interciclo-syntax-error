@@ -79,6 +79,11 @@ void Integrantesgrp(){
 };
 void mostrarPuntajes()
 {
+    if (listaPuntajes == NULL)
+    {
+        cout << "No hay puntajes registrados aún." << endl; // si no hay puntajes muestra el mensaje informando que no hay puntajes registrados.
+        return;
+    }
     
 };
 
