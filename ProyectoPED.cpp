@@ -189,6 +189,30 @@ void mostrarJugadores() // muestra los jugadores registrados para jugar.
     }
 };
 
+void actualizarPuntaje(string nombre)
+{
+    Puntaje *actual = listaPuntajes;
+
+    // Buscar si el jugador ya tiene puntos registrados
+    while (actual != NULL)
+    {
+        if (actual->nombreJugador == nombre)
+        {
+            actual->puntos++; // Aumentar puntos si ya existe
+            return;
+        }
+        actual = actual->siguiente;
+    }
+
+    // Si no existe crea un  nuevo registro
+    Puntaje *nuevo = new Puntaje();
+    nuevo->nombreJugador = nombre;
+    nuevo->puntos = 1;
+    nuevo->siguiente = listaPuntajes;
+    listaPuntajes = nuevo;
+}
+
+
 void Integrantesgrp(){
     cout << "INTEGRANTES DEL GRUPO"<<endl;
     cout << "1. Diana Rebeca Ayala Jandres 00021325"<<endl;
