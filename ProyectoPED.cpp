@@ -57,6 +57,50 @@ void insertarNombres()
     }
     cout << "\n Informacion guardada \n" << endl;
 };
+
+
+
+void enumerarjugadores(Nodo *lista) //funcion para asignar un numero a cada jugador que se vaya agregando
+{ // variable que tiene la direccion del primer nodo/elemento
+
+    Nodo *actual = lista; // se guarda la direccion del primer nodo en actual
+    int contador = 1;
+    while (actual != NULL)
+    { // mientras exista un elemento
+
+        actual->numero = contador;  // para acceder al campo numero del nodo y asignar el uno al primer nodo.
+        contador++;                 // una vez se ha asignado el primer numero, pasara al siguiente nodo y empezara a enlistarlos
+        actual = actual->siguiente; // una vez asignado el numero, el puntero actual guarda la direccion del siguiente nodo y sucesivamente.
+    }
+};
+
+int total(Nodo *lista)
+{
+    int contador = 0; // iniciar el contador con cero para que inicie con el primer dato de la lista.
+
+    Nodo *actual = lista;
+
+    while (actual != NULL)
+    {
+        contador++;
+        actual = actual->siguiente; // el while ayudara a saber cuantos datos hay en la lista
+    }
+    return contador; // devolverá el total de datos que tiene la lista
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void mostrarJugadores() // muestra los jugadores registrados para jugar.
 {
     Nodo *actual = primero;
