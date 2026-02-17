@@ -57,7 +57,17 @@ void insertarNombres()
     }
     cout << "\n Informacion guardada \n" << endl;
 };
-
+// opciones de juego, agregarlas al menu.
+void opcionesjuego()
+{
+    cout << "======| OPCIONES DEL JUEGO |======" << endl;
+    cout << "1. Piedra: le gana a tijeras y pierde con papel." << endl;
+    cout<<"\n"<<endl;
+    cout << "2. Papel: le gana a piedra y pierde con tijeras." << endl;
+    cout<<"\n"<<endl;
+    cout << "3. Tijeras: le gana a papel y pierde con piedra. " << endl;
+    cout<<"\n"<<endl;
+};
 
 
 void enumerarjugadores(Nodo *lista) //funcion para asignar un numero a cada jugador que se vaya agregando
