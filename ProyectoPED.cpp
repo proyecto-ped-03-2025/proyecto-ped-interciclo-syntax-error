@@ -313,8 +313,8 @@ void mostrarPuntajes()
         actual = actual->siguiente;
     }
 
-    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " gana el juego. " << endl;
-    
+    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " 5 victorias gana el juego. " << endl;
+    //modificacion de victorias
 };
 
 void ayuda()
