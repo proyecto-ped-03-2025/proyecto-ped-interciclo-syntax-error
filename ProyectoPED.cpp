@@ -23,6 +23,14 @@ struct Puntaje
     Puntaje *siguiente;
 
 } *listaPuntajes;
+
+// funciones
+void enumerarjugadores(Nodo *lista);
+int total(Nodo *lista);
+Nodo *buscarnumerorandom(Nodo *lista, int num);
+void Jugadoresrand(Nodo *lista, Nodo *&jugador1, Nodo *&jugador2);
+void actualizarPuntaje(string nombre);
+
 void insertarNombres()
 {
 
@@ -49,6 +57,179 @@ void insertarNombres()
     }
     cout << "\n Informacion guardada \n" << endl;
 };
+// opciones de juego, agregarlas al menu.
+void opcionesjuego()
+{
+    cout << "======| OPCIONES DEL JUEGO |======" << endl;
+    cout << "1. Piedra: le gana a tijeras y pierde con papel." << endl;
+    cout<<"\n"<<endl;
+    cout << "2. Papel: le gana a piedra y pierde con tijeras." << endl;
+    cout<<"\n"<<endl;
+    cout << "3. Tijeras: le gana a papel y pierde con piedra. " << endl;
+    cout<<"\n"<<endl;
+};
+void Jugar()
+{
+    cout << "Iniciando partida..." << endl;
+
+    int totaldejugadores = total(primero);
+
+    if (totaldejugadores < 2)
+    {
+        cout << "No hay suficientes jugadores para empezar la partida" << endl;
+    };
+
+    enumerarjugadores(primero);
+
+    cout << "======| JUGADORES |====== " << endl;
+    cout << "\n"<< endl;
+    Nodo *jugador1;
+    Nodo *jugador2; // mandar a llamar para luego mostrarlo con ayuda de la funcion
+    Jugadoresrand(primero, jugador1, jugador2);
+    
+    // mostrar los jugadores de la partida que salieron con el numero random
+    cout << "Jugador 1: " << jugador1->nombre << endl;
+    cout << "Jugador 2: " << jugador2->nombre << endl;
+    
+
+    string opcionesdejuego[] = {"Piedra", "Papel", "Tijera"};
+    string opcion1 = opcionesdejuego[rand() % 3];
+    string opcion2 = opcionesdejuego[rand() % 3]; // para generar las opciones piedra, papel y tijera.
+
+    //cout << "\n"<< endl;
+
+    cout << "jugador 1: " << jugador1->nombre << "  saca:   " << opcion1 << endl;
+    cout << "jugador 2: " << jugador2->nombre << "  saca:   " << opcion2 << endl;
+    cout<<"\n"<<endl;
+
+    if (opcion1 == opcion2)
+    {
+        cout << "Empate" << endl;
+        // si en estos casos gana el jugador 1:
+    }
+    else if ((opcion1 == "Piedra" && opcion2 == "Tijeras") || (opcion1 == "Papel" && opcion2 == "Piedra") || (opcion1 == "Tijeras" && opcion2 == "Papel"))
+    {
+
+        cout << jugador1->nombre << " es el ganador :D!" << endl;
+        cout << "\n"<< endl;
+        actualizarPuntaje(jugador1->nombre);
+    }
+    else
+    {
+        cout << jugador2->nombre << " es el ganador :D!" << endl;
+        cout << "\n"<< endl;
+        actualizarPuntaje(jugador2->nombre);
+    };
+};
+
+
+void enumerarjugadores(Nodo *lista) //funcion para asignar un numero a cada jugador que se vaya agregando
+{ // variable que tiene la direccion del primer nodo/elemento
+
+    Nodo *actual = lista; // se guarda la direccion del primer nodo en actual
+    int contador = 1;
+    while (actual != NULL)
+    { // mientras exista un elemento
+
+        actual->numero = contador;  // para acceder al campo numero del nodo y asignar el uno al primer nodo.
+        contador++;                 // una vez se ha asignado el primer numero, pasara al siguiente nodo y empezara a enlistarlos
+        actual = actual->siguiente; // una vez asignado el numero, el puntero actual guarda la direccion del siguiente nodo y sucesivamente.
+    }
+};
+
+int total(Nodo *lista)
+{
+    int contador = 0; // iniciar el contador con cero para que inicie con el primer dato de la lista.
+
+    Nodo *actual = lista;
+
+    while (actual != NULL)
+    {
+        contador++;
+        actual = actual->siguiente; // el while ayudara a saber cuantos datos hay en la lista
+    }
+    return contador; // devolverá el total de datos que tiene la lista
+};
+
+// funcion para buscar la direccion donde se encuentran el numero del jugador:
+
+Nodo *buscarnumerorandom(Nodo *lista, int num)
+{
+    Nodo *actual = lista; // apuntar al primer elemento de la lista
+    while (actual != NULL)
+    {                              // mientras se encuentre llena la lista se cumplira
+        if (actual->numero == num) // si se cumple, devuelve la direccion del random 1
+        {
+            return actual; // ayudara a llegar a la direccion del numero random 1
+        }
+        actual = actual->siguiente; // se pasa a buscar la direccion del siguiente numero random , si no esta ahi, sigue al siguiente y sucesivamente.
+    }
+    return NULL;
+};
+
+Nodo *numeroal(Nodo *lista)
+{ // esta funcion devolverá una copia de la direccion del nodo aleatorio, se ocupa tipo nodo
+
+    int totaljugadores = total(lista); // ahi se guarda el total de jugadores que se obtuvo de la funcion anterior
+
+    if (totaljugadores == 0)
+    {
+        return nullptr; // si no hay ningun jugador, no se eligirá
+    }
+
+    int numerorandom = rand() % totaljugadores + 1;
+
+    return buscarnumerorandom(lista, numerorandom);
+};
+
+void Jugadoresrand(Nodo *lista, Nodo *&jugador1, Nodo *&jugador2)
+{ //
+    int total = 0;
+    Nodo *actual = lista;
+
+    while (actual != NULL)
+    {
+        total++; // el total aumente mediante el numero de datos que se encuentre en la lista
+        actual = actual->siguiente;
+    };
+
+    if (total < 2)
+    {                               // si hay menos de dos jugadores
+        jugador1 = jugador2 = NULL; // si se cumple la condicion, no hay jugadores o solo hay 1
+        return;
+    }
+
+    int posjugador1= rand() % total; // seleccionara la posicion del jugador random que jugara en la partida
+    int posjugador2;
+
+    do
+    {
+        posjugador2 = rand() % total; // ahora eligira al otro jugador de la ronda
+
+    } while (posjugador2 == posjugador1); // el while se ejecutara siempre y cuando los dos jugadores tengan la misma direccion, si tienen la misma direccion, se ejecutara para generar una diferente
+
+    jugador1 = lista;
+
+    for (int i = 0; i < posjugador1; i++)
+    {                                   // buscara la direccion que se generaron con el rand
+        jugador1 = jugador1->siguiente; // para moverse al siguiente nodo
+    }
+
+    jugador2 = lista;
+    for (int i = 0; i < posjugador2; i++)
+    {
+        jugador2 = jugador2->siguiente;
+    };
+
+    cout << "Jugadores a competir: " << jugador1->nombre<< " y " << jugador2->nombre << endl; // muestra los jugadores a jugar en esta ronda
+    cout<<"\n"<<endl;
+};
+
+
+
+
+
+
 void mostrarJugadores() // muestra los jugadores registrados para jugar.
 {
     Nodo *actual = primero;
@@ -70,6 +251,30 @@ void mostrarJugadores() // muestra los jugadores registrados para jugar.
        actual = actual->siguiente;
     }
 };
+
+void actualizarPuntaje(string nombre)
+{
+    Puntaje *actual = listaPuntajes;
+
+    // Buscar si el jugador ya tiene puntos registrados
+    while (actual != NULL)
+    {
+        if (actual->nombreJugador == nombre)
+        {
+            actual->puntos++; // Aumentar puntos si ya existe
+            return;
+        }
+        actual = actual->siguiente;
+    }
+
+    // Si no existe crea un  nuevo registro
+    Puntaje *nuevo = new Puntaje();
+    nuevo->nombreJugador = nombre;
+    nuevo->puntos = 1;
+    nuevo->siguiente = listaPuntajes;
+    listaPuntajes = nuevo;
+}
+
 
 void Integrantesgrp(){
     cout << "INTEGRANTES DEL GRUPO"<<endl;
@@ -108,8 +313,8 @@ void mostrarPuntajes()
         actual = actual->siguiente;
     }
 
-    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " gana el juego. " << endl;
-    
+    cout << "Ganador de la partida: " << ganador << " con " << maxPuntos << " 5 victorias gana el juego. " << endl;
+    //modificacion de victorias
 };
 
 void ayuda()
