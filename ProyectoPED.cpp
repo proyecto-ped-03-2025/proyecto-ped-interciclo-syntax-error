@@ -50,7 +50,13 @@ void enumerarjugadores(Nodo *lista) //funcion para asignar un numero a cada juga
 
     Nodo *actual = lista; // se guarda la direccion del primer nodo en actual
     int contador = 1;
-    
+    while (actual != NULL)
+    { // mientras exista un elemento
+
+        actual->numero = contador;  // para acceder al campo numero del nodo y asignar el uno al primer nodo.
+        contador++;                 // una vez se ha asignado el primer numero, pasara al siguiente nodo y empezara a enlistarlos
+        actual = actual->siguiente; // una vez asignado el numero, el puntero actual guarda la direccion del siguiente nodo y sucesivamente.
+    }
 };
 
 
