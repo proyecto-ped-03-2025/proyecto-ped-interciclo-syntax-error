@@ -88,7 +88,36 @@ int total(Nodo *lista)
     return contador; // devolverá el total de datos que tiene la lista
 };
 
+// funcion para buscar la direccion donde se encuentran el numero del jugador:
 
+Nodo *buscarnumerorandom(Nodo *lista, int num)
+{
+    Nodo *actual = lista; // apuntar al primer elemento de la lista
+    while (actual != NULL)
+    {                              // mientras se encuentre llena la lista se cumplira
+        if (actual->numero == num) // si se cumple, devuelve la direccion del random 1
+        {
+            return actual; // ayudara a llegar a la direccion del numero random 1
+        }
+        actual = actual->siguiente; // se pasa a buscar la direccion del siguiente numero random , si no esta ahi, sigue al siguiente y sucesivamente.
+    }
+    return NULL;
+};
+
+Nodo *numeroal(Nodo *lista)
+{ // esta funcion devolverá una copia de la direccion del nodo aleatorio, se ocupa tipo nodo
+
+    int totaljugadores = total(lista); // ahi se guarda el total de jugadores que se obtuvo de la funcion anterior
+
+    if (totaljugadores == 0)
+    {
+        return nullptr; // si no hay ningun jugador, no se eligirá
+    }
+
+    int numerorandom = rand() % totaljugadores + 1;
+
+    return buscarnumerorandom(lista, numerorandom);
+};
 
 
 
