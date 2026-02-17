@@ -119,11 +119,48 @@ Nodo *numeroal(Nodo *lista)
     return buscarnumerorandom(lista, numerorandom);
 };
 
+void Jugadoresrand(Nodo *lista, Nodo *&jugador1, Nodo *&jugador2)
+{ //
+    int total = 0;
+    Nodo *actual = lista;
 
+    while (actual != NULL)
+    {
+        total++; // el total aumente mediante el numero de datos que se encuentre en la lista
+        actual = actual->siguiente;
+    };
 
+    if (total < 2)
+    {                               // si hay menos de dos jugadores
+        jugador1 = jugador2 = NULL; // si se cumple la condicion, no hay jugadores o solo hay 1
+        return;
+    }
 
+    int posjugador1= rand() % total; // seleccionara la posicion del jugador random que jugara en la partida
+    int posjugador2;
 
+    do
+    {
+        posjugador2 = rand() % total; // ahora eligira al otro jugador de la ronda
 
+    } while (posjugador2 == posjugador1); // el while se ejecutara siempre y cuando los dos jugadores tengan la misma direccion, si tienen la misma direccion, se ejecutara para generar una diferente
+
+    jugador1 = lista;
+
+    for (int i = 0; i < posjugador1; i++)
+    {                                   // buscara la direccion que se generaron con el rand
+        jugador1 = jugador1->siguiente; // para moverse al siguiente nodo
+    }
+
+    jugador2 = lista;
+    for (int i = 0; i < posjugador2; i++)
+    {
+        jugador2 = jugador2->siguiente;
+    };
+
+    cout << "Jugadores a competir: " << jugador1->nombre<< " y " << jugador2->nombre << endl; // muestra los jugadores a jugar en esta ronda
+    cout<<"\n"<<endl;
+};
 
 
 
