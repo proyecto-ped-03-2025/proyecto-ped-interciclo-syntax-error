@@ -68,6 +68,59 @@ void opcionesjuego()
     cout << "3. Tijeras: le gana a papel y pierde con piedra. " << endl;
     cout<<"\n"<<endl;
 };
+void Jugar()
+{
+    cout << "Iniciando partida..." << endl;
+
+    int totaldejugadores = total(primero);
+
+    if (totaldejugadores < 2)
+    {
+        cout << "No hay suficientes jugadores para empezar la partida" << endl;
+    };
+
+    enumerarjugadores(primero);
+
+    cout << "======| JUGADORES |====== " << endl;
+    cout << "\n"<< endl;
+    Nodo *jugador1;
+    Nodo *jugador2; // mandar a llamar para luego mostrarlo con ayuda de la funcion
+    Jugadoresrand(primero, jugador1, jugador2);
+    
+    // mostrar los jugadores de la partida que salieron con el numero random
+    cout << "Jugador 1: " << jugador1->nombre << endl;
+    cout << "Jugador 2: " << jugador2->nombre << endl;
+    
+
+    string opcionesdejuego[] = {"Piedra", "Papel", "Tijera"};
+    string opcion1 = opcionesdejuego[rand() % 3];
+    string opcion2 = opcionesdejuego[rand() % 3]; // para generar las opciones piedra, papel y tijera.
+
+    //cout << "\n"<< endl;
+
+    cout << "jugador 1: " << jugador1->nombre << "  saca:   " << opcion1 << endl;
+    cout << "jugador 2: " << jugador2->nombre << "  saca:   " << opcion2 << endl;
+    cout<<"\n"<<endl;
+
+    if (opcion1 == opcion2)
+    {
+        cout << "Empate" << endl;
+        // si en estos casos gana el jugador 1:
+    }
+    else if ((opcion1 == "Piedra" && opcion2 == "Tijeras") || (opcion1 == "Papel" && opcion2 == "Piedra") || (opcion1 == "Tijeras" && opcion2 == "Papel"))
+    {
+
+        cout << jugador1->nombre << " es el ganador :D!" << endl;
+        cout << "\n"<< endl;
+        actualizarPuntaje(jugador1->nombre);
+    }
+    else
+    {
+        cout << jugador2->nombre << " es el ganador :D!" << endl;
+        cout << "\n"<< endl;
+        actualizarPuntaje(jugador2->nombre);
+    };
+};
 
 
 void enumerarjugadores(Nodo *lista) //funcion para asignar un numero a cada jugador que se vaya agregando
