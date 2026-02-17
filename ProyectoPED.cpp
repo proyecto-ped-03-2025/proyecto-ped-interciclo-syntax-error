@@ -23,6 +23,14 @@ struct Puntaje
     Puntaje *siguiente;
 
 } *listaPuntajes;
+
+// funciones
+void enumerarjugadores(Nodo *lista);
+int total(Nodo *lista);
+Nodo *buscarnumerorandom(Nodo *lista, int num);
+void Jugadoresrand(Nodo *lista, Nodo *&jugador1, Nodo *&jugador2);
+void actualizarPuntaje(string nombre);
+
 void insertarNombres()
 {
 
